@@ -34,6 +34,7 @@ export async function POST(req: Request) {
 
       if (lineItems && lineItems.data.length > 0) {
         const priceId = lineItems.data[0]?.price?.id || null;
+        console.log(priceId);
 
         if (priceId) {
           let credits = 0;

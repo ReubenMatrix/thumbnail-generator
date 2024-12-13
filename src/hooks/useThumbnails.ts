@@ -22,7 +22,7 @@ export function useThumbnails() {
         }
         const data = await response.json();
         
-        // Transform dates and sort
+   
         const processedThumbnails = data.map((item: Thumbnail) => ({
           ...item,
           createdAt: new Date(item.createdAt)
