@@ -1,6 +1,7 @@
 "use client";
 
 
+import { redirectToCheckout } from "@/app/actions/stripe";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -46,6 +47,10 @@ const PricingCard = ({
         {priceId && (
           <Button
             className="mt-6 w-full"
+            onClick={async() => {
+              await redirectToCheckout(priceId);
+            }
+          }
           >
             Buy now
           </Button>

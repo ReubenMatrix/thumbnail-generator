@@ -20,9 +20,9 @@ function page({}: Props) {
           </Link>
 
           <div className="flex flex-col gap-4 md:flex-row">
-            <PricingCard priceId="1" pricing="$10" credits="10" />
-            <PricingCard priceId="2" pricing="$20" credits="25" />
-            <PricingCard priceId="3" pricing="$50" credits="100" />
+            <PricingCard priceId={process.env.STRIPE_10_PACK} pricing="₹10" credits="10" />
+            <PricingCard priceId={process.env.STRIPE_20_PACK} pricing="₹20" credits="25" />
+            <PricingCard priceId={process.env.STRIPE_50_PACK} pricing="₹50" credits="100" />
           </div>
         </div>
       </div>

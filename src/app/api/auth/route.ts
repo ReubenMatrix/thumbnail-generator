@@ -1,5 +1,6 @@
 import { currentUser } from '@clerk/nextjs/server';
 import prisma from '@/lib/prismaclient';
+import Stripe from 'stripe';
 
 export async function POST(req: Request) {
   try {
@@ -20,11 +21,18 @@ export async function POST(req: Request) {
       where: { email },
     });
 
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+    const customer = await stripe.customers.create({
+      email,
+    });
+
+
     if (!existingUser) {
       await prisma.user.create({
         data: {
           name: user.fullName || 'Unknown',
           email,
+          stripeCustomerId: customer.id,
         },
       });
     }
