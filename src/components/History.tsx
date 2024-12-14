@@ -1,4 +1,3 @@
-// components/History.tsx
 'use client';
 
 import React from "react";
@@ -57,7 +56,7 @@ export default function History() {
                     className="h-56 w-auto rounded-lg object-contain"
                     onError={(e) => {
                       const imgElement = e.target as HTMLImageElement;
-                      imgElement.src = '/placeholder-image.png'; // Fallback image
+                      imgElement.src = '/placeholder-image.png'; 
                     }}
                   />
                   <p className="text-sm">
